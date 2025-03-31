@@ -2,7 +2,7 @@ import { View, Text, Image } from 'react-native'
 import React from 'react'
 import images from '@/constants/images'
 
-const NoResult = () => {
+const NoResults = () => {
   return (
     <View className='fle items-center my-5'>
         <Image source={images.noResult} className='w-11/12 h-80' resizeMode={"contain"} />
@@ -14,4 +14,4 @@ const NoResult = () => {
   )
 }
 
-export default NoResult
+export default NoResults
