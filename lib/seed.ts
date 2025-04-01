@@ -8,10 +8,10 @@ import {
 } from "./data";
 
 const COLLECTIONS = {
-  AGENT: config.agentsCollectionId,
+  AGENTS: config.agentsCollectionId,
   REVIEWS: config.reviewsCollectionId,
-  GALLERY: config.galleriesCollectionId,
-  PROPERTY: config.propertiesCollectionId,
+  GALLERIES: config.galleriesCollectionId,
+  PROPERTIES: config.propertiesCollectionId,
 };
 
 const propertyTypes = [
@@ -92,7 +92,7 @@ async function seed() {
     for (let i = 1; i <= 5; i++) {
       const agent = await databases.createDocument(
         config.databaseId!,
-        COLLECTIONS.AGENT!,
+        COLLECTIONS.AGENTS!,
         ID.unique(),
         {
           name: `Agent ${i}`,
@@ -127,7 +127,7 @@ async function seed() {
     for (const image of galleryImages) {
       const gallery = await databases.createDocument(
         config.databaseId!,
-        COLLECTIONS.GALLERY!,
+        COLLECTIONS.GALLERIES!,
         ID.unique(),
         { image }
       );
@@ -156,7 +156,7 @@ async function seed() {
 
       const property = await databases.createDocument(
         config.databaseId!,
-        COLLECTIONS.PROPERTY!,
+        COLLECTIONS.PROPERTIES!,
         ID.unique(),
         {
           name: `Property ${i}`,
