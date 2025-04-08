@@ -8,29 +8,30 @@ import {
 } from "./data";
 
 const COLLECTIONS = {
-  AGENTS: config.agentsCollectionId,
+  AGENT: config.agentsCollectionId,
   REVIEWS: config.reviewsCollectionId,
-  GALLERIES: config.galleriesCollectionId,
-  PROPERTIES: config.propertiesCollectionId,
+  GALLERY: config.galleriesCollectionId,
+  PROPERTY: config.propertiesCollectionId,
 };
 
 const propertyTypes = [
   "House",
-  "TownHouse",
+  "Townhouse",
   "Condo",
-  "Duplex",
   "Studio",
   "Villa",
   "Apartment",
   "Other",
+  "Duplexe",
 ];
 
 const facilities = [
-  "Laundry",
-  "Parking",
-  "Gym",
-  "Wifi",
-  "Pet-Friendly",
+    "Laundry",
+    "Parking",
+    "Gym",
+    "Wifi",
+    "Pet-Friendly"
+    
 ];
 
 function getRandomSubset<T>(
@@ -92,7 +93,7 @@ async function seed() {
     for (let i = 1; i <= 5; i++) {
       const agent = await databases.createDocument(
         config.databaseId!,
-        COLLECTIONS.AGENTS!,
+        COLLECTIONS.AGENT!,
         ID.unique(),
         {
           name: `Agent ${i}`,
@@ -127,7 +128,7 @@ async function seed() {
     for (const image of galleryImages) {
       const gallery = await databases.createDocument(
         config.databaseId!,
-        COLLECTIONS.GALLERIES!,
+        COLLECTIONS.GALLERY!,
         ID.unique(),
         { image }
       );
@@ -156,7 +157,7 @@ async function seed() {
 
       const property = await databases.createDocument(
         config.databaseId!,
-        COLLECTIONS.PROPERTIES!,
+        COLLECTIONS.PROPERTY!,
         ID.unique(),
         {
           name: `Property ${i}`,
